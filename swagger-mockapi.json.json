@@ -1,0 +1,125 @@
+openapi: 3.0.1
+info:
+  title: API de consultório
+  description: API para controlar médicos e suas especialidades dentro do consultório.
+  version: 0.0.1
+  termsOfService: https://mockapi.io
+  contact:
+    name: Suporte a Devs
+    email: contato@example.com
+    url: https://mockapi.io
+  license:
+    name: "Licença: GPLv3"
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+externalDocs:
+  description: Documentação burocrática
+  url: https://mockapi.io
+servers:
+    - url: https://688cd6aacd9d22dda5cea92d.mockapi.io/
+      description: API de consultório - Teste
+paths:
+    /medicos:
+        get:
+            summary: Busca ou recupera todos os dados dos médicos cadastrados
+            responses: 
+                '200':
+                    description: Lista de médicos retornada com sucesso
+                    content:
+                      application/json:
+                        schema:
+                          type: array
+                          items:
+                            $ref: "#/components/schemas/medicos"
+        post: 
+          summary: Cria um novo médico, com nome e especialidade
+          requestBody: 
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    especialidade:
+                      type: string
+          responses:
+            '201':
+              description: "Médico criado com sucesso!"
+            '400':
+              description: "Requisição inválida"
+              content: 
+                application/json:
+                  example: "Erro inesperado ao tentar criar o médico."
+                               
+    /medicos/{id}:
+        parameters: 
+            - name: id
+              in: path
+              schema: 
+                type: integer
+              required: true
+        get:
+            summary: Recupera um médico pelo ID
+            responses:
+              '200':
+                  description: Médico encontrado com sucesso!
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+                        properties:
+                            id:
+                              type: integer
+                            description:
+                              type: string
+              '404':
+                  description: Médico não encontrado. 
+                  content:
+                    application/json:
+                      example: "Not found"
+        delete:
+          summary: Deleta um médico do sistema 
+          responses:
+              '200':
+                description: Médico removido com sucesso.
+                content:
+                  application/json:
+                    example: "Médico removido com sucesso."
+              '404':
+                description: Médico não encontrado.
+                content:
+                  application/json:
+                    example: "Médico não foi encontrado."
+              '500':
+                description: Erro interno ao tentar remover o médico.
+                content:
+                  application/json:
+                    example: "Erro ao remover o médico. Tente novamente mais tarde." 
+components:
+  schemas:
+    medicos:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        especialidade:
+          type: string
+      
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
