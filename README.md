@@ -25,7 +25,7 @@ Este repositório reúne meus estudos e práticas relacionados à criação e do
 ## 📁 Organização
 
 - `evidencias/`: prints e imagens das atividades práticas realizadas
-- `docs/`: arquivos `.yaml` ou `.json` com documentação de APIs
+- arquivos `.yaml` ou `.json` com documentação de APIs
 
 ## 💡 Objetivo
 
@@ -33,4 +33,7 @@ Reunir, documentar e praticar os aprendizados para reforçar meu conhecimento so
 
 ---
 
+### Link da API fake:
+- [API teste - consultório médico](https://mockapi.io/projects/688cd6aacd9d22dda5cea92e)
+  
 > Este repositório será atualizado à medida que eu avançar nos estudos e projetos relacionados ao tema. 🚀
